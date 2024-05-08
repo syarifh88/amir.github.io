@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikan Cupang Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #908a8a;
+        }
+
+        .navbar {
+            padding: 1rem 0;
+            background-color: #343a40;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff3333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            margin-right: 15px;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .nav-link:hover {
+            color: #dddd06;
+            text-decoration: none;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('sea.jpg');
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-section p {
+            font-size: 1.8rem;
+            font-style: italic;
+            animation: fadeInUp 1s ease;
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-title, .card-text {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+        }
+
+        .additional-content {
+            background-color: #4a4e52;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .additional-content h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .additional-content p {
+            font-size: 1.8rem;
+            line-height: 2;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .additional-content ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .additional-content li {
+            padding: 10px 0;
+            color: #fff;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .logo {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Amir Saputra</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" hnef="#">Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tentang</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Jasa</a>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasIntro" aria-controls="offcanvasIntro">Tentang Saya</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasIntro" aria-labelledby="offcanvasIntroLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasIntroLabel">Tentang Saya</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <p>Ini adalah website tentang ikan cupang saya.</p>
+    </div>
+</div>
+
+<div class="hero-section">
+    <div class="container">
+        <h1>Selamat datang di Ikan Cupang</h1>
+        <p>Jelajahi beragam ikan cupang yang menakjubkan.</p>
+        <a class="btn btn-primary btn-lg" href="#additional-content" role="button">Jelajahi Sekarang</a>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="cupang1.jpg" class="card-img-top" alt="Betta Fish">
+                <div class="card-body">
+                    <h5 class="card-title">Ikan Cupang</h5>
+                    <p class="card-text">Ikan Cupang, juga dikenal sebagai ikan aduan siam, adalah ikan akuarium yang populer.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="cupang2.jpg" class="card-img-top" alt="Aquarium Setup">
+                <div class="card-body">
+                    <h5 class="card-title">Pengaturan Akuarium</h5>
+                    <p class="card-text">Pelajari cara menyiapkan akuarium yang indah untuk ikan cupang Anda.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="cupang3.jpg" class="card-img-top" alt="Feeding Tips">
+                <div class="card-body">
+                    <h5 class="card-title">Tip Memberi Makan</h5>
+                    <p class="card-text">Temukan makanan terbaik untuk menjaga ikan cupang Anda tetap sehat dan bahagia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="additional-content" class="additional-content fade-in">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2 class="text-center mb-4">Temukan Ikan Cupang</h2>
+                <div class="text-center mb-4">
+                    <img src="mania.png" alt="Logo" class="logo">
+                </div>
+                <p class="lead text-center">
+                    Ikan cupang, juga dikenal sebagai ikan aduan siam, adalah makhluk menawan dengan warna cerah dan kepribadian unik.
+                    Berasal dari Asia Tenggara, mereka adalah pilihan populer bagi para aquarists karena penampilannya yang mencolok dan perawatannya yang relatif rendah.
+                </p>
+                <div class="text-left mt-4">
+                    <h4>Poin Perawatan Utama:</h4>
+                    <ul>
+                        <li>Ikan cupang tumbuh subur di air hangat (78-80°F) dan lebih menyukai kondisi yang sedikit asam.</li>
+                        <li>Mereka adalah karnivora dan harus diberi makanan bervariasi berupa pelet berkualitas tinggi, makanan beku, atau makanan hidup.</li>
+                        <li>Ikan cupang jantan bersifat teritorial dan harus ditempatkan sendiri untuk mencegah agresi.</li>
+                        <li>Sediakan banyak tempat persembunyian dan tanaman di akuarium mereka untuk menciptakan lingkungan yang merangsang.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-dark text-light text-center py-4">
+    <p>&copy; 2024 Ikan Cupang</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const navbar = document.querySelector('.navbar');
+        const sections = document.querySelectorAll('.fade-in');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        const fadeInSections = () => {
+            sections.forEach(section => {
+                if (window.scrollY + window.innerHeight > section.offsetTop + 100) {
+                    section.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', fadeInSections);
+        fadeInSections();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>
